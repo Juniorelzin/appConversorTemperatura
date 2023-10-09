@@ -22,15 +22,40 @@ export default function App() {
 
   function converterCelsiu(){
 
+    let Celsius = Number(entradaCelsius) 
+
+    let farenheit = ( Celsius * 9/5) + 32
+    let kelvin  = Celsius + 273.15
+
+    setSaidaFahrenheit1(farenheit.toFixed(2) +'°F')
+    setSaidaKelvin1(kelvin.toFixed(2) + 'K')
     
+
 
   }
   function converterFarenheit(){
+
+    let farenheit = Number(entradaFahrenheit) 
+
+    let celsius = 5/9*(farenheit-32)
+    let kelvin  = (farenheit + 459.67) * 5/9
+
+    setSaidaCelsius2(celsius.toFixed(2) + 'ºC')
+    setSaidaKelvin2(kelvin.toFixed(2) + 'K')
+   
 
    
 
   }
   function converterKelvin(){
+
+    let kelvin = Number(entradaKelvin) 
+
+    let celsius = kelvin - 273.15
+    let farenheit  = (kelvin - 273.15) * 9/5 + 32
+
+    setSaidaCelsius3(celsius.toFixed(2) + 'ºC')
+    setSaidaFahrenheit3(farenheit.toFixed(2) +'°F')
 
     
 
@@ -43,7 +68,9 @@ export default function App() {
     <ScrollView>
 
     <View style={styles.container}>
-      <Text style={styles.textoH1}>Conversor de Temperatura</Text>
+      <Text style={styles.textoH1}>Conversor</Text>
+      <Text style={styles.textoH1}>de</Text>
+      <Text style={styles.textoH1}>Temperatura</Text>
 
     <View style={styles.card}>
       <Text style={styles.textoCard}>Inserir Celsius (ºC)</Text>
@@ -58,7 +85,10 @@ export default function App() {
 
 
     </TouchableOpacity>
-    <Text style={styles.resultado}></Text>
+    <View style={styles.ViewResultador}>
+    <Text style={styles.resultado}>Farenheit: {saidaFahrenheit1}</Text>
+    <Text style={styles.resultado}>Kelvin: {saidaKelvin1}</Text>
+    </View>
     </View>
     
 
@@ -76,7 +106,10 @@ export default function App() {
 
 
     </TouchableOpacity>
-    <Text style={styles.resultado}></Text>
+    <View style={styles.ViewResultador}>
+    <Text style={styles.resultado}>Celsius: {saidaCelsius2}</Text>
+    <Text style={styles.resultado}>Kelvin: {saidaKelvin2}</Text>
+    </View>
     
     </View>
     <View style={styles.card}>
@@ -93,7 +126,10 @@ export default function App() {
 
 
     </TouchableOpacity>
-    <Text style={styles.resultado}></Text>
+    <View style={styles.ViewResultador}>
+    <Text style={styles.resultado}>Celsius: {saidaCelsius3}</Text>
+    <Text style={styles.resultado}>Farenheit: {saidaFahrenheit3}</Text>
+    </View>
 
     </View>
 
@@ -119,7 +155,7 @@ const styles = StyleSheet.create({
   card:{
 
     width:'95%',
-    height: 250,
+    height: 300,
     backgroundColor: '#A9A9A9',
     borderRadius: 10,
     borderWidth: 1,
@@ -135,9 +171,9 @@ const styles = StyleSheet.create({
   textoCard: {
 
     fontSize: 30,
-    shadowOffset: {width: 3, height: 5},
-    shadowOpacity: 0.3,
-    shadowRadius: 3,
+    TextshadowOffset: {width: 3, height: 5},
+    TextshadowOpacity: 0.3,
+    TextshadowRadius: 3,
 
   },
   input: {
@@ -151,6 +187,7 @@ const styles = StyleSheet.create({
     shadowOffset: {width: 3, height: 5},
     shadowOpacity: 0.3,
     shadowRadius: 3,
+    paddingLeft: 10
 
 
   },
@@ -171,19 +208,27 @@ const styles = StyleSheet.create({
   },
   textoH1: {
 
-    fontSize: 60,
-    shadowOffset: {width: 3, height: 5},
-    shadowOpacity: 0.3,
-    shadowRadius: 3,
+    fontSize: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    TextshadowOffset: {width: 3, height: 5},
+    TextshadowOpacity: 0.3,
+    TextshadowRadius: 3,
 
   },
   resultado: {
 
     fontSize: 30,
-    shadowOffset: {width: 3, height: 5},
-    shadowOpacity: 0.3,
-    shadowRadius: 3,
+    TextshadowOffset: {width: 3, height: 5},
+    TextshadowOpacity: 0.3,
+    TextshadowRadius: 3,
 
+  },
+  ViewResultador: {
+    width:'100%',
+    height: '20%',
+    justifyContent: 'center',
+    alignItems: 'center',
 
   }
 
